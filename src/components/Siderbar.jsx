@@ -13,7 +13,7 @@ export function Sidebar(){
         />
 
       <div className={styles.profile}>
-        <Avatar src="https://cdna.artstation.com/p/assets/images/images/050/172/070/large/mathraw-mathou-chx.jpg?1654208026"/>
+        <Avatar src="https://cdn3d.iconscout.com/3d/premium/thumb/web-developer-4506461-3738664.png"/>
         <strong>Tiago Gabriel</strong>
         <span>Full Stack Developer</span>
       </div>
