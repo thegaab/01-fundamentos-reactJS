@@ -21,7 +21,7 @@ const posts = [
     content: [
       {type: 'paragraph', content:      'A paragraph is a unit of writing that consists of one or more sentences that focus on a specific topic or idea.',},
       
-      {type: 'link', content:'It serves as a building block for organizing written communication, allowing writers to break down their thoughts into smaller'},
+      {type: 'paragraph', content:'It serves as a building block for organizing written communication, allowing writers to break down their thoughts into smaller'},
 
       {type: 'link', content: 'more manageable parts. A well-constructed paragraph contains a clear topic sentence'} 
     ], publishedAt: new Date('2023-03-03 20:00:00')
@@ -36,7 +36,7 @@ const posts = [
     content: [
       {type: 'paragraph', content:      'A paragraph is a unit of writing that consists of one or more sentences that focus on a specific topic or idea.',},
       
-      {type: 'link', content:'It serves as a building block for organizing written communication, allowing writers to break down their thoughts into smaller'},
+      {type: 'paragraph', content:'It serves as a building block for organizing written communication, allowing writers to break down their thoughts into smaller'},
 
       {type: 'link', content: 'more manageable parts. A well-constructed paragraph contains a clear topic sentence'} 
     ], publishedAt: new Date('2023-03-04 19:00:00'),
