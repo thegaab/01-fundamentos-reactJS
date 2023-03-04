@@ -6,10 +6,6 @@ import'./global.css'
 
 import styles from './App.module.css';
 
-// Author: {avatar_url: "", name: "", role:""}
-// PublishedAt: Date
-// Content: string
-
 const posts = [
   {
     id: 1,
@@ -54,6 +50,7 @@ export function App() {
         {posts.map(post=>{
           return (
             <Post
+              key={post.id}
               author={post.author}
               content={post.content}
               publishedAt={post.publishedAt}
