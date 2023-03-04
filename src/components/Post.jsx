@@ -1,31 +1,46 @@
+import {format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR'
+
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
+
 import styles from './Post.module.css';
 
-export function Post(){
+export function Post({author, publishedAt, content}){
+  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h",{
+    locale: ptBR,
+  })
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt,{
+    locale: ptBR,
+    addSuffix: true
+  })
+
   return(
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://cdn3d.iconscout.com/3d/premium/thumb/web-developer-4506461-3738664.png"/>
+          <Avatar src={author.avatarUrl}/>
           <div className={styles.authorInfo}>
-            <strong>Tiago Gabriel</strong>
-            <span>Full Stack Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.rule}</span>
           </div>
         </div>
 
-      <time title="14 de fevereiro ás 18:38"dateTime="2023-02-14 18:38">Publicado há 1h</time>
+      <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>Publicado há 1h</time>
+        {publishedDateRelativeToNow}
       </header>
       
       <div className={styles.content}>
-        <p>
-        <p>A paragraph is a unit of writing that consists of one or more sentences that focus on a specific topic or idea.</p> 
-        
-        <p> <a href=""> It serves as a building block for organizing written communication, allowing writers to break down their thoughts into smaller,</a></p>
-        
-        <p> <a href="">more manageable parts. A well-constructed paragraph contains a clear topic sentence.</a></p> 
-        
-        </p>
+        {
+          content.map(line=>{
+            if(line.type === 'paragraph'){
+              return <p>{line.content}</p>
+            }else if(line.type === 'link'){
+              return <p><a href="#">{line.content}</a></p>
+            }
+          })
+        }
       </div>
 
       <form className={styles.commentForm}>

@@ -6,6 +6,43 @@ import'./global.css'
 
 import styles from './App.module.css';
 
+// Author: {avatar_url: "", name: "", role:""}
+// PublishedAt: Date
+// Content: string
+
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://cdn3d.iconscout.com/3d/premium/thumb/web-developer-4506461-3738664.png',
+      name: 'Tiago Gabriel',
+      rule:  'Full Stack Developer @ Movida'
+    },
+    content: [
+      {type: 'paragraph', content:      'A paragraph is a unit of writing that consists of one or more sentences that focus on a specific topic or idea.',},
+      
+      {type: 'link', content:'It serves as a building block for organizing written communication, allowing writers to break down their thoughts into smaller'},
+
+      {type: 'link', content: 'more manageable parts. A well-constructed paragraph contains a clear topic sentence'} 
+    ], publishedAt: new Date('2023-03-03 20:00:00')
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://cdn3d.iconscout.com/3d/premium/thumb/trendy-person-avatar-6299537-5187869.png',
+      name: 'Well Gomes',
+      rule:  'Full Stack Developer @ ORACLE'
+    },
+    content: [
+      {type: 'paragraph', content:      'A paragraph is a unit of writing that consists of one or more sentences that focus on a specific topic or idea.',},
+      
+      {type: 'link', content:'It serves as a building block for organizing written communication, allowing writers to break down their thoughts into smaller'},
+
+      {type: 'link', content: 'more manageable parts. A well-constructed paragraph contains a clear topic sentence'} 
+    ], publishedAt: new Date('2023-03-04 19:00:00'),
+  },
+];
+
 export function App() {
   return (
     <div>
@@ -14,14 +51,15 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-        <Post
-        author="Tiago Gabriel"
-        content="lorem"
-        />
-        <Post
-          author="Gabriel Tiago"
-          content="lorem ipsum"
-        />
+        {posts.map(post=>{
+          return (
+            <Post
+              author={post.author}
+              content={post.content}
+              publishedAt={post.publishedAt}
+            />
+          )
+        })}
         </main>
       </div>
     </div>
